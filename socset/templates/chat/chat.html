@@ -1,0 +1,247 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="img/icon.png" type="image/png">
+    
+    <link rel="shortcut icon" href="{% static 'img/icon.png' %}" type="image/png">
+    
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+     <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+
+    <title> Chat | FaceVkInsta</title>
+  </head>
+  <body>
+    
+    
+
+{% include 'navbar.html' %}
+
+<br><br><br><br>
+    <div class="container">  
+      <div class="row"> 
+          
+          
+        <div class="col-lg-9 col-md-12 col-xs-12 leftprofile">
+
+        <div class="nameuserchat">
+<div style="margin-top: 10px;"></div>
+          
+          {% if userobjchat.user.userprofile.avatar %}
+          <img class="img-fluid img-thumbnail imgchat" 
+          src="{{ userobjchat.user.userprofile.avatar.url }}">
+            {% else %}
+            <img class="img-fluid img-thumbnail imgchat" 
+          src="{% static 'img/default_avatar.png' %}">
+          {% endif %}
+
+
+          <p>{{ userobjchat.user.get_full_name }} | 
+          <small> Был в сети 
+          {{ userobjchat.last_activity|timesince}} назад</small></p>
+
+
+        </div>
+       <div style="margin-top: 45px;"></div>
+        <hr>
+
+         <script>
+         $.ajax({
+            async: true,
+            type: "GET",
+            url: page_url
+          })
+         $('body').load(url);
+    // setTimeout(function () {
+    //    window.location.reload();
+    // }, 2000);
+    
+</script>
+        
+      <div class="messagepole" id="messagepole">
+
+      <!-- <div class="yourmessage">
+
+        {% if userobjchat.user.userprofile.avatar %}
+
+          <img class="img-fluid imgchatsmall" 
+          src="{{ userobjchat.user.userprofile.avatar.url }}" alt="">
+          {% else %}
+          <img class="img-fluid" 
+          src="{% static 'img/default_avatar.png' %}">
+      {% endif %}
+    
+    {{ userobjchat.user.get_full_name }}
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+      </div> -->
+     
+     <!-- ajax message -->
+     <!-- <script type="text/javascript">
+       $('#formmessage').submit(function(e){
+          e.preventDefault();
+          var data = $(this).serialize()
+          $.ajax({
+            type: "POST",
+            url: "/post/"
+            data: data,
+            success: function(result){
+              $("#result").html()
+            }
+          })
+       })
+     </script> -->
+
+
+
+    {% for mess in allmessages %}
+    {% if mess.user == request.user %}
+    {% if mess.useryou == userobjchat.user %}
+      <div class="mymessage">
+    
+     <div class="imgandmsg">   
+<p class="nameclassmsg">
+{{ mess.user.get_full_name }}
+  </p>       
+          <img class="img-fluid imgchatsmallmy" 
+          src="{{ mess.user.userprofile.avatar.url }}">
+     </div>
+          
+      
+      <p class="messageclass">{{ mess.message|linebreaks }}</p>
+      </div>
+      <br><br><br><br><br><br>
+        {% endif %}
+      {% else %}
+
+        {% if mess.user == userobjchat.user %}
+        {% if mess.useryou == request.user %}
+      <div class="yourmessage">
+        
+
+<div class="imgandmsgyour">
+        
+          <img class="img-fluid imgchatsmall imgchatsmallyour" 
+          src="{{ mess.user.userprofile.avatar.url }}">
+      
+      <p class="nameimgmsgyour">
+      {{ mess.user.get_full_name }}</p>    
+      
+</div>
+
+      <p class="msgyourclass">{{ mess.message|linebreaks }}</p>
+      
+      </div>
+      <br><br><br><br><br>
+      {% endif %} <!-- mess.useryou = request.user -->
+
+      {% endif %}
+      {% endif %}
+      {% endfor %}
+      <script> 
+      // Делает скролл чата всегда внизу
+        var messageBody = document.querySelector('.messagepole');
+        messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
+      </script>
+      
+      <script>
+                    var chatlist = document.getElementById('msg-list-div');
+                    chatlist.scrollTop = chatlist.scrollHeight;
+
+                </script>
+
+
+
+
+      </div> <!-- ../ MessagePole -->
+            
+            <div class="formachat">
+          <form action="" method="post" id="formmessage" 
+          enctype='multipart/form-data'>
+          {% csrf_token %}
+          
+
+          <!-- <select class="hiddentest" 
+          name="useryou" id="id_useryou" required>
+  <option value="1">{{ userobjchat.user }}</option>
+  </select> -->
+
+          <input type="hidden" for="id_message" 
+          name="runmessagehtml" id="hiddeninputmsg">
+            <textarea wrap="soft | hard" class="textmessage" 
+            name="message" id="id_message"></textarea>
+          <input type="hidden" name="messagedohtml">
+
+
+<!-- Выберает useryou -->
+<div class="hiddentest">
+<tr><th><label for="id_useryou">Useryou:</label></th><td>
+<select name="useryou" id="id_useryou" required>
+
+  <option 
+  value="{{ userobjchat.user.id }}" 
+  selected>{{ userobjchat.user }}
+  </option>
+
+
+</select></td></tr>
+</div>
+
+
+            
+
+
+            <button name="submit" type="submit" id="submit"
+            class="buttonmessage">
+              <i class="fas fa-arrow-alt-circle-right circlemessage"></i>
+            </button>
+
+{% if messages %}
+    <div class='messages'>
+
+    <ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{% if "html_safe" in message.tags %}{{ message|safe }}{% else %}{{ message }}{% endif %}</li>
+    {% endfor %}
+    </ul>
+
+    </div>
+{% endif %}
+
+  
+
+          </form>
+          </div>
+      </div>
+        <div class="col-lg-3 col-md-12 col-xs-12">
+          <p class="">BANNER</p>
+          <br>
+ 
+        </div>
+          
+        
+
+      </div>
+    </div>
+  <script>
+   {% include 'chat/chat.js' %}
+   </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

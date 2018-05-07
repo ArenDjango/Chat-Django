@@ -1,0 +1,582 @@
+@import url('https://fonts.googleapis.com/css?family=Cuprum|Indie+Flower|Italianno|Lato|Roboto');
+
+
+/*
+font-family: 'Cuprum', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Italianno', cursive;
+font-family: 'Lato', sans-serif;
+font-family: 'Indie Flower', cursive;
+*/
+
+/*Font Awesome*/
+@import url("https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
+
+
+body{
+	margin: 0;
+	padding: 0;
+}
+
+.logo p{
+	font-family: 'Indie Flower', cursive;
+	font-size: 27px;
+	color: white;
+	margin-left: 10px;
+}
+
+.logo img{
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+.logo{
+	background-color: #FA26F8;
+}
+
+.leftlanding{
+	/*background-color: #F8F3F3;*/
+}
+
+.bodylanding{
+
+}
+@media (max-width: 400px){
+	.formmy{
+	margin-top: 100px;
+	width: auto;
+	}
+}
+
+@media (min-width: 401px){
+.formmy{
+	width: 350px;
+	margin-top: 100px;
+	margin-left: auto;
+	margin-right: auto;
+}
+}
+
+.formmy{
+	border: 1px solid silver;
+	background-color: #F7F7F7;
+}
+
+.formmy form{
+	margin: 30px;
+}
+
+.onreglogform{
+	text-align: center;
+	font-size: 19px;
+	font-family: 'Indie Flower', cursive;
+}
+
+.loginbutton{
+	width: 100%;
+	background-color: #FA26F8;
+	color: white;
+	font-family: 'Roboto', sans-serif;
+}
+
+.loginbutton:hover{
+	width: 100%;
+	background-color: white;
+	color: #FA26F8;
+	font-family: 'Roboto', sans-serif;
+	transition: 0.5s;
+}
+
+.forgotpassword{
+	text-align: center;
+}
+
+.iconimg{
+	height: 38px;
+}
+
+
+
+/* SITE******************************** */
+
+		/*MENU*/
+
+.bg-ight{
+	background-color: #FA26F8;
+}
+
+.navbar-light .navbar-brand{
+	font-family: 'Indie Flower', cursive;
+	font-size: 25px;
+	color: white;
+	margin-left: -5px;
+}
+.navbar-light .navbar-brand:hover{
+	font-family: 'Indie Flower', cursive;
+	font-size: 25px;
+	color: white;
+	margin-left: -5px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+	color: white;
+}
+.navbar-light .navbar-nav .nav-link:hover {
+	color: white;
+}
+
+.dropdownmyclass{
+	margin-right: 80px;
+}
+.dropdown-item{
+	color: black;
+}
+.dropdown-item:hover{
+	color: black;
+}
+
+.userimg{
+	height: 20px;
+}
+
+.navbar-light .navbar-nav .show>.nav-link {
+    color: white;
+}
+
+
+/*RIGHTCOOLSITE*/
+.friendsonline{
+	font-family: 'Cuprum', sans-serif;
+	font-size: 17px;
+	color: 
+}
+
+
+
+.firendsOnlineList p{
+	font-family: 'Roboto', sans-serif;
+	font-size: 12px;
+}
+.firendsOnlineList p a{
+	font-family: 'Roboto', sans-serif;
+	font-size: 17px;
+}
+.firendsOnlineList p a:hover{
+	font-family: 'Roboto', sans-serif;
+	text-decoration: none;
+}
+
+
+@media (min-width: 1100px){
+.rightcoolsite{
+	margin-top: 100px;
+	border-left: 1px solid grey;
+	margin-left: 60%;
+	position: fixed;
+}
+}
+
+@media (max-width: 1099px) and (min-width: 750px){
+.rightcoolsite{
+	margin-top: 100px;
+	border-left: 1px solid grey;
+	margin-left: 50%;
+	position: fixed;
+}
+}
+
+
+
+/*LEFT SITE NEWS */
+
+.leftsitenews{
+	
+}
+
+
+
+
+.articlesite{
+	border: 1px solid #DFDDDD;
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+@media (min-width: 1126px){
+	.beginarticles{
+	margin-top: 20px;
+	background-color: #F7F6F6;
+	width: 80%;
+	}
+}
+
+@media (max-width: 1125px) and (min-width: 750px){
+	.beginarticles{
+	margin-top: 20px;
+	background-color: #F7F6F6;
+	width: 60%;
+	}
+}
+
+
+
+/* *********** PROFILE ************ */
+
+
+@media (min-width: 1100px){
+.rightprofile{
+	margin-top: 100px;
+	border-left: 1px solid grey;
+	margin-left: 60%;
+	position: fixed;
+}
+}
+
+@media (max-width: 1099px) and (min-width: 750px){
+.rightprofile{
+	margin-top: 100px;
+	border-left: 1px solid grey;
+	margin-left: 50%;
+	position: fixed;
+}
+}
+
+
+.img-profile{
+	height: 250px;
+}
+
+.nameprofile .namepr{
+	font-family: 'Roboto', sans-serif;
+	font-size: 17px;
+	color: grey;
+}
+
+.leftprofile{
+	background-color: #F2F1F1;
+}
+
+.leftprofilecolor{
+	margin-top: 10px;
+}
+
+
+
+/*PROFILE EDIT*/
+.cityedit{
+	resize: none;
+	height: 65px;
+}
+
+.placeworkedit{
+	resize: none;
+	height: 65px;
+}
+
+.saveedit{
+	float: right;
+}
+
+.imglistusers{
+	height: 80px;
+	width: 80px;
+	border: 2px solid white;
+	border-radius: 100px; /* Радиус скругления */
+}
+
+.friendsFollowersUl{
+	float: right;
+}
+
+.friendsFollowersUl li{
+	display: inline;
+}
+.friendsFollowersUl .followli{
+	margin-left: 20px;
+}
+
+/*PROFILE EDIT ../*/
+
+
+/*OPOVISHENIYE KOLOKOLCHIK*/
+
+.fa-bell{
+	font-size: 19px;
+	margin-top: 4px;
+	color: white;
+	cursor: pointer;
+}
+
+
+.modal-backdrop.show{
+	opacity: 0;
+}
+
+.modal-backdrop{
+	z-index: 0;
+}
+.modal-title{
+	color: black;
+	font-family: 'Cuprum', sans-serif;
+}
+
+.nav-item{
+	margin-left: 10px;
+}
+
+
+
+/*SEARCH*/
+.fa-search{
+	color: #FF31F9;
+	font-size: 15px;
+}
+
+.buttonsearch{
+	width: 65px;
+	cursor: pointer;
+    border: 1px solid var(--ytd-searchbox-legacy-button-border-color);
+    margin: 0;
+    padding: 2px 6px;
+    margin-left: -3.3px;
+    background-color: #FF8731;
+}
+.searchinput{
+	border: none;
+	padding: 2px 6px;
+}
+
+/*../ SEARCH*/
+
+
+/*MESSAGE*/
+.fa-envelope{
+	color: white;
+	font-size: 19px;
+	margin-top: 4px;
+	color: white;
+	cursor: pointer;
+}
+/*../ MESSAGE*/
+
+
+.modal-body{
+	color: black;
+}
+
+.usernamekolokol{
+	color: black;
+}
+
+
+
+
+/******************MESSAGE********************/
+
+
+@media(min-width: 1206px){
+.textmessage{
+	width: 719px;
+	resize: none;
+	height: auto;
+	font-family: 'Roboto', sans-serif;
+
+}
+}
+@media(max-width: 1205px){
+.textmessage{
+	/*width: auto;*/
+	resize: none;
+	/*height: auto;*/
+	font-family: 'Roboto', sans-serif;
+
+}
+}
+
+.buttonmessage{
+	margin-bottom: 10px;
+	border: none;
+	padding: 15px 6px;
+	width: 100px;
+	cursor: pointer;
+	position: absolute;
+}
+.buttonmessage:hover{
+	border: none;
+	padding: 15px 6px;
+	width: 100px;
+	cursor: pointer;
+	background-color: #BAC5B1;
+
+}
+
+.circlemessage{
+	font-size: 20px;
+	color: grey;
+}
+
+.messagepole{
+	height: 500px;
+}
+
+.nameuserchat p{
+	font-family: 'Cuprum', sans-serif;
+	font-size: 18px;
+}
+
+.imgchat{
+	height: 60px;
+	float: right;
+}
+
+.messagepole{
+	overflow-x: none;
+	overflow-y: auto;
+}
+
+.imgchatsmall{
+	height: 50px;
+	border-radius: 50px;
+	
+}
+
+
+.mymessage{
+	float: right;
+}
+
+.yourmessage{
+
+}
+
+
+
+
+.hiddentest{
+	display: none;
+}
+
+
+/*ADAPTIVNI MESSAGE MY Остаёться messageyou*/
+.imgandmsg{
+	display: flex;
+	float: right;
+}
+
+.nameclassmsg{
+	float: right;
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-right: 4px;
+	color: #00ABDC;
+
+}
+.imgchatsmallmy{
+	float: right;
+	height: 50px;
+	border-radius: 50px;
+}
+
+.messageclass{
+	margin-top: 65px;
+}
+
+.mymessage{
+	margin-right: 20px;
+}
+
+/*ADAPTIVNI MESSAGE YOUR */
+
+.imgandmsgyour{
+	display: flex;
+}
+
+.nameimgmsgyour{
+	margin-top: auto;
+	margin-bottom: auto;
+	margin-left: 4px;
+	float: left;
+	color: #D74B35;
+}
+
+.msgyourclass{
+	margin-top: 25px;
+}
+
+.imgchatsmallyour{
+	float: left;
+}
+
+
+
+.fa-images{
+	color: white;
+	font-size: 19px;
+	margin-top: 4px;
+	color: white;
+	cursor: pointer;
+}
+
+
+/********FILES************************/
+
+.allfiles{
+	/*background-color: #E2DADA;*/
+}
+
+.imgclassall{
+	height: 200px;
+	width: 100%;
+}
+
+.videoclassall{
+	height: 200px;
+	width: 100%;
+}
+
+
+
+/*ADDPHOTOFORM*/
+
+.videocheck{
+	font-size: 19px;
+}
+
+.addphotobutton{
+	margin-left: 10px;
+}
+
+
+.addLikeClass{
+	color: blue;
+	border: none;
+	background-color: #F2F1F1;
+	cursor: pointer;
+}
+
+.removeLikeClass{
+	border: none;
+	background-color: #F2F1F1;
+	cursor: pointer;
+}
+
+.like{
+	color: grey;
+}
+.unlike{
+	color: #130F0F;
+}
+
+
+
+
+
+/*ALLCHAT*/
+
+.allchat{
+	display: flex;
+}
+
+.inmessage{
+	color: #F12D2D;
+	margin-left: 4px;
+}

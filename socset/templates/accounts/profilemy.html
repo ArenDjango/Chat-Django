@@ -1,0 +1,113 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="img/icon.png" type="image/png">
+    <link rel="shortcut icon" href="{% static 'img/icon.png' %}" type="image/png">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  
+    <title>FaceVkInsta</title>
+  </head>
+  <body>
+    
+    
+
+{% include 'navbar.html' %}
+
+<br><br><br><br>
+    <div class="container">  
+      <div class="row"> 
+          
+          
+        <div class="col-lg-9 col-md-9 col-xs-12 leftprofile">
+          <div class="leftprofilecolor">
+          <div class="row">
+
+          <div class="imgandop col-lg-4">
+
+          {% if user.userprofile.avatar %}
+
+          <img class="img-fluid img-thumbnail img-profile" 
+          src="{{ user.userprofile.avatar.url }}" alt="">
+          {% else %}
+          <img class="img-fluid" 
+          src="{% static 'img/default_avatar.png' %}">
+          <br>
+          <form method="post" action="." enctype='multipart/form-data'>
+          {% csrf_token %}
+          {{ forming|crispy }}
+      <input type="submit" value="Загружать фото"
+      class="btn btn-default">
+      </form>
+      {% endif %}
+
+          
+          </div>
+          <div class="nameprofile col-lg-8">
+            <p class="namepr">{{ user.get_full_name }}</p>
+            <a href="/update/">Изменить данные</a>
+            <p>Город - 
+<a href="/listusers/?q={{ user.userprofile.city }}">
+            {{ user.userprofile.city }}</a></p>
+            <p>Место работы - 
+<a href="/listusers/?q={{ user.userprofile.placework }}">
+            {{ user.userprofile.placework }}</a></p>
+          </div>
+          
+        </div>
+        
+        <br><br>
+        <div class="friends">
+          <p>Друзья <a style="margin-left: 10px;" href="/listusers/"> Найти ешё друзей</a></p>
+          <hr>
+          
+      {% for users in zayavka_list %}
+{% if users.user in request.user.userprofile.friends.all %}
+          <div class="firendsOnlineList">
+            <p>
+            <a href="{{ users.user_get_absolute_url }}">
+          {{ users.user.get_full_name }}</a>
+          </p> 
+            Бил в сети {{ users.last_activity|timesince}} назад<p>
+          </div>
+          <hr>
+          {% endif %}
+          {% endfor %}
+
+
+        </div>
+          <div class="chat"></div>
+
+        </div>
+      </div>
+
+        <div class="col-lg-3 col-md-3 col-xs-12">
+          <p class="">BANNER</p>
+          <br>
+ 
+        </div>
+          
+        
+
+      </div>
+    </div>
+
+   
+
+    <div style="margin-top: 1000px;"></div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

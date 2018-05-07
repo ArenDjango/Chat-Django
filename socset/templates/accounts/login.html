@@ -1,0 +1,31 @@
+{% extends 'landing.html' %}
+{% block content %}
+<form method="POST" action="">
+ {% csrf_token %}
+              <input type="text" name="username" class="form-control" placeholder="Логин" required id="id_username">
+              <br>
+              <input type="password" name="password"
+			  required id="id_password"
+              class="form-control" placeholder="Пароль">
+              <br>
+              <p class="forgotpassword"><a href="/register/">
+              Нет аккаунта?</a></p>
+              
+              <button class="loginbutton btn" 
+         name="submit" 
+         type="submit">
+         Войти</button>
+            </form>
+
+          <!-- <form class="formclasslogin" action=""> 
+<tr><th></th><td><input type="text" name="username" required id="id_username" /></td></tr>
+
+<tr><th></th><td><input type="password" name="password" 
+ required id="id_password" /></td></tr>
+</form> -->
+
+
+
+
+
+{% endblock content %}

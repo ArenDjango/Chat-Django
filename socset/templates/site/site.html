@@ -1,0 +1,80 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="img/icon.png" type="image/png">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  
+    <title>FaceVkInsta</title>
+  </head>
+  <body>
+    
+    
+{% include 'navbar.html' %}
+
+
+<br><br><br><br>
+    <div class="container">  
+      <div class="row"> 
+        
+        <div class="col-lg-3 col-md-3 col-xs-12 rightcoolsite">
+          <p class="friendsonline">Друзья онлайн</p>
+          <br>
+          <hr>
+
+          <div class="firendsOnlineList">
+            <p><a href="">Павел Дуров </a> Бил в сети час назад<p>
+          </div>
+          <hr>
+          <div class="firendsOnlineList">
+            <p><a href="">Кевин Митник </a> Бил в сети 20 мин. назад<p>
+          </div>
+          <hr>
+
+        </div>
+          
+        <div class="col-lg-9 col-md-9 col-xs-12 leftsitenews">
+          <div class="beginarticles">
+            <br><br>
+          <article class="articlesite">
+            <p class="articlep">
+              Lorem ipsum dolor sit amet, <br>
+              consectetur adipisicing elit. <br>
+               Architecto distinctio accusamus, odit aperiam ducimus...
+            </p>
+            <img class="img-fluid" src="img/safe_image.jpg" alt="">
+          </article>
+          <br><br>
+          <article class="articlesite">
+            <p class="articlep">
+              Microsoft отказалась от позиционирования себя как<br> Windows-компании. Акценты сместились в сторону <br>корпоративного ПО, искусственного интеллекта и<br> облачных технологий...
+            </p>
+            <img class="img-fluid" src="img/safe_image (1).jpg" alt="">
+          </article>
+          <br><br>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+   
+
+    <div style="margin-top: 1000px;"></div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

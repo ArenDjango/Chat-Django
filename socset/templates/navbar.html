@@ -1,0 +1,153 @@
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-ight fixed-top">
+  <a class="navbar-brand logonavbar" href="/site/">
+    <img class="img-fluid iconimg" 
+              src="img/icon.png" 
+              alt="">
+  FaceVkInsta
+</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/profile/">Мой страница<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <div style="margin-bottom: auto;margin-top: auto;" class="nav-link" href="#">
+        <form action="/listusers/" method="GET">
+          <input type="search" name="q" class="searchinput" 
+          placeholder="Поиск...">
+          <button type="submit" class="buttonsearch"><i class="fa fa-search"></i></button>
+        </form>
+        </div>
+      </li>
+    
+     <li class="nav-item">
+     <div class="nav-link" href="#">
+   
+       <i class="fa fa-bell" data-toggle="modal" data-target="#myModal"></i> 
+{% if user.userprofile.zayavkadruzya.count > 0 %}
+       {{ user.userprofile.zayavkadruzya.count }}
+       {% endif %}
+      
+
+       <!-- Кнопка пуска модальное окно -->  
+<!-- <button type="button" class="buttonmodalbell" data-toggle="modal" data-target="#myModal">
+  <i class="fa fa-bell"></i>
+</button> -->
+
+<!-- Модальное окно -->  
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      <h4 class="modal-title" id="myModalLabel">
+      Оповещение ( {{ user.userprofile.zayavkadruzya.count }} )
+      </h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        
+      </div>
+      <div class="modal-body modalscrolling">
+        {% if user.userprofile.zayavkadruzya.count > 0 %}
+        <p>Заявки на добавление в друзья</p>
+        {% else %}
+        <p>Новых Уведомлений нету</p>
+        {% endif %}
+
+        <!--
+        Рабочый метод 
+        {% for d in request.user.userprofile.zayavkadruzya.all %}
+        {{ d.get_full_name }}
+        {% endfor %} -->
+            
+{% for users in zayavka_list %}
+{% if users.user in request.user.userprofile.zayavkadruzya.all %}
+        <p class="usernamekolokol">
+          <div class="listuserdiv">
+           <p><img class="img-fluid imglistusers" src="{{ users.user.userprofile.avatar.url }}" alt="">
+          <a href="{{ users.user_get_absolute_url }}">
+          {{ users.user.get_full_name }}</a></p>
+
+            <form action="" method="POST">
+            {% csrf_token %}
+              <input name="endaddfriend" 
+  value="{% if username %}{{ username }}{% else %}jmitchel3{% endif %}" 
+  class="form-control pr-5" type="hidden" placeholder="Поиск...">
+          
+          <button class="btn btn-primary">
+            Добавить в друзья
+          </button>
+
+            </form>
+            <br>
+
+            <button class="btn btn-warning">
+              Оставить в подписчиках
+            </button>
+            
+          </div>
+          <br>
+          <hr>   
+        </p>        
+        {% endif %}
+        {% endfor %}
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div><!-- ../ Модальное окно -->
+
+       
+
+
+       </div>
+
+     </li>
+
+     <li class="nav-item">
+     <a class="nav-link" href="/allchat/">
+       <i class="fa fa-envelope"></i>
+       {% if user.userprofile.messagedo.count > 0 %}
+       {{ user.userprofile.messagedo.count }}
+       {% endif %}
+       </a>
+     </li>
+
+     <li class="nav-item">
+     <a class="nav-link" href="/foto/">
+       <i class="far fa-images"></i>
+     </li>
+      
+    </ul>
+
+
+
+
+    <ul class="navbar-nav dropdownmyclass">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{ user.first_name }} 
+          <img class="userimg" src="img/l01.png" alt="">
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Ешё</a>
+          <a class="dropdown-item" href="#">Настройки</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/logout/">Выход</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
